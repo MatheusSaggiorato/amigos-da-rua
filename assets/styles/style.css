@@ -1,69 +1,135 @@
+/* Definição de variáveis para as cores principais */
 :root {
-  --primal-color-logo:#FA931D;
-  --secondary-color-logo:#CCCCCC;
+  --primal-color-logo: #FA931D;
+  --secondary-color-logo: #EEEEEE;
+  --text-color: #333;
+  --primary-blue: #007bff;
+  --dark-blue: #0056b3;
+  --background-light: #f8f9fa;
 }
 
+/* Aplicação das fontes personalizadas */
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/Montserrat-Regular.ttf') format('truetype');
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/Montserrat-Bold.ttf') format('truetype');
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'Lato';
+  src: url('../fonts/Lato-Regular.ttf') format('truetype');
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'Lato';
+  src: url('../fonts/Lato-Bold.ttf') format('truetype');
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'Lato';
+  src: url('../fonts/Lato-Light.ttf') format('truetype');
+  font-weight: 300;
+}
+
+/* Estilização geral */
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Lato', sans-serif;
+  color: var(--text-color);
   margin: 0;
   padding: 0;
-  background-color: #f0f2f5;
-  background: linear-gradient(to bottom, #fff490, var(--primal-color-logo));
+  background: var(--background-light);
 }
 
+/* Cabeçalho */
 header {
-  background: linear-gradient(90deg, #007bff, #0056b3);
+  background: linear-gradient(90deg, var(--primary-blue), var(--dark-blue));
   color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: .5rem 5.5rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 1rem 5.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   flex-wrap: wrap;
 }
 
 header img {
-  height: 6.5rem;
-  border-radius: 8PX;
+  height: 6rem;
+  border-radius: 8px;
 }
 
 header h1 {
   font-size: 2.2rem;
-  letter-spacing: .25rem;
-  font-family: Verdana, sans-serif;
+  letter-spacing: 0.2rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+}
+
+/* Botão de Doação com animação */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(250, 147, 29, 0.5);
+  }
+  50% {
+    transform: scale(1.032);
+    box-shadow: 0 0 20px rgba(250, 147, 29, 0.8);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(250, 147, 29, 0.5);
+  }
 }
 
 .doar-btn {
   background-color: var(--primal-color-logo);
   color: #fff;
-  padding: 12px 20px;
-  border-radius: 8px;
+  padding: 14px 22px;
+  border-radius: 10px;
   text-decoration: none;
   font-weight: bold;
-  font-size: 1.5rem;
-  transition: 0.3s;
+  font-size: 1.3rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+  animation: pulse 1.5s infinite;
 }
 
 .doar-btn:hover {
-  background-color: #e6b800;
-  transform: scale(1.05);
+  background-color: #e67e00;
+  transform: scale(1.1);
 }
 
+/* Seções gerais com espaçamento melhorado */
 section {
   max-width: 900px;
-  margin: 30px auto;
-  padding: 25px;
+  margin: 50px auto;
+  padding: 35px;
   background: white;
-  border-radius: 12px;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
-  color: #007bff;
-  border-bottom: 3px solid #007bff;
-  padding-bottom: 5px;
+  color: var(--primary-blue);
+  border-bottom: 4px solid var(--primary-blue);
+  padding-bottom: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
 }
 
+/* Estilização dos cards das seções */
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+/* Galeria de imagens */
 .galeria {
   display: flex;
   justify-content: center;
@@ -76,30 +142,34 @@ h2 {
   max-width: 280px;
   border-radius: 10px;
   transition: transform 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .galeria img:hover {
   transform: scale(1.05);
 }
 
+/* Depoimentos */
 .depoimento {
   background: var(--secondary-color-logo);
-  padding: 20px;
-  border-left: 5px solid #007bff;
-  border-radius: 8px;
-  margin: 20px 0;
+  padding: 25px;
+  border-left: 6px solid var(--primary-blue);
+  border-radius: 10px;
+  margin: 25px 0;
   font-style: italic;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Rodapé */
 footer {
   text-align: center;
   background: linear-gradient(90deg, #343a40, #1d1f21);
   color: white;
-  padding: 20px;
+  padding: 25px;
   margin-top: 20px;
 }
 
-ul {
+footer ul {
   list-style-type: none;
   padding: 0;
 }
@@ -121,6 +191,7 @@ footer ul li a:hover {
   color: #ffd700;
 }
 
+/* Responsividade */
 @media (max-width: 500px) {
   header {
     flex-direction: column;
@@ -135,13 +206,12 @@ footer ul li a:hover {
   }
   
   header h1 {
-    font-size: 2rem;
-    letter-spacing: 0.2rem;
+    font-size: 1.8rem;
   }
   
   .doar-btn {
-    font-size: 1em;
-    padding: 8px 14px;
+    font-size: 1.1em;
+    padding: 10px 16px;
     margin: 1rem;
   }
 }
